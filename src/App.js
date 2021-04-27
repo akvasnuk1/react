@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import CharacterComponent from "./component/characterComponent/character.component";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <h1>Cats around US</h1>
+        <div className={'MainDiv'}>
+            <div><CharacterComponent img={"https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg"}/>
+                <CharacterComponent img={'https://timesofindia.indiatimes.com/photo/67586673.cms'}/>
+                <CharacterComponent img={'https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png'}/>
+                <CharacterComponent img={'https://icatcare.org/app/uploads/2018/06/Layer-1704-1920x840.jpg'}/></div>
+            <div><CharacterComponent img={"https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg"}/>
+                <CharacterComponent img={'https://timesofindia.indiatimes.com/photo/67586673.cms'}/>
+                <CharacterComponent img={'https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png'}/>
+                <CharacterComponent img={'https://icatcare.org/app/uploads/2018/06/Layer-1704-1920x840.jpg'}/></div>
+            <div><CharacterComponent img={"https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg"}/>
+                <CharacterComponent img={'https://timesofindia.indiatimes.com/photo/67586673.cms'}/>
+                <CharacterComponent img={'https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png'}/>
+                <CharacterComponent img={'https://icatcare.org/app/uploads/2018/06/Layer-1704-1920x840.jpg'}/></div>
+        </div>
     </div>
+
   );
 }
 
