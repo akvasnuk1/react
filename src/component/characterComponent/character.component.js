@@ -1,6 +1,5 @@
-
 export default function User(props) {
-    let {id, name, age, isMarried,onClick} = props;
+    let {id, name, age, isMarried, onClick} = props;
 
     return (
         <div>
