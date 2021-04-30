@@ -5,7 +5,7 @@ export default function User(props) {
     return (
         <div>
             <h3>{id} {name} {age} {isMarried.toString()}
-                <button onClick={onClick(id)}>Delete user</button>
+                <button onClick={() => onClick(id)}>Delete user</button>
             </h3>
         </div>
     );

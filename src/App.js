@@ -21,8 +21,8 @@ function App() {
   //   setUsers([...users]);
   // }
   const deleteUsers = (id) => {
-    users=(users.filter((user) => user.id !== id));
-    setUsers([...users])
+    const newArr = users.filter(user => user.id !== id);
+    setUsers(newArr)
   };
   let number=2;
   let [counter,setCounter]=useState(number);
@@ -38,7 +38,7 @@ function App() {
         <button onClick={reset}>reset</button>
       </div>
         {
-           listUsers.map((value,index)=>
+          users.map((value,index)=>
              <Car key={index}
                         {...value}
 
