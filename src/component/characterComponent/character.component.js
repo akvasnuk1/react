@@ -1,11 +1,12 @@
-import './character.component.css'
-function CharacterComponent(props){
-    return <div>
-        <img src={props.img} alt="cats"/>
-        <h3>Cats</h3>
-        <p>
-            Cats is the best pats in your life.
-        </p>
-    </div>
+
+export default function User(props) {
+    let {id, name, age, isMarried,onClick} = props;
+
+    return (
+        <div>
+            <h3>{id} {name} {age} {isMarried.toString()}
+                <button onClick={onClick(id)}>Delete user</button>
+            </h3>
+        </div>
+    );
 }
-export default CharacterComponent;

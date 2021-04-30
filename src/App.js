@@ -1,26 +1,55 @@
 import './App.css';
-import CharacterComponent from "./component/characterComponent/character.component";
-
-
+import Car from "./component/characterComponent/character.component";
+import {useState} from "react";
+const listUsers = [
+  {id: 9, name: 'vasya', age: 31, isMarried: false, address: {city: 'Kyiv', street: 'Gongadze', number: 16}},
+  {id: 2, name: 'petya', age: 30, isMarried: true, address: {city: 'Rivne', street: 'Zelena', number: 1}},
+  {id: 4, name: 'kolya', age: 29, isMarried: true, address: {city: 'Lviv', street: 'Pasichna', number: 121}},
+  {id: 3, name: 'olya', age: 28, isMarried: false, address: {city: 'Rivne', street: 'Shevchenko', number: 90}},
+  {id: 8, name: 'max', age: 30, isMarried: true, address: {city: 'Lviv', street: 'Kriva Lipa', number: 115}},
+  {id: 6, name: 'anya', age: 31, isMarried: false, address: {city: 'Lviv', street: 'Shevchenko', number: 2}},
+  {id: 10, name: 'oleg', age: 28, isMarried: false, address: {city: 'Kyiv', street: 'Centralna', number: 22}},
+  {id: 5, name: 'andrey', age: 29, isMarried: true, address: {city: 'Lviv', street: 'Gorodotska', number: 43}},
+  {id: 1, name: 'masha', age: 30, isMarried: true, address: {city: 'Kyiv', street: 'Peremogi', number: 12}},
+  {id: 7, name: 'olya', age: 31, isMarried: false, address: {city: 'Lviv', street: 'Naukova', number: 16}},
+  {id: 11, name: 'max', age: 31, isMarried: true, address: {city: 'Rivne', street: 'Ivana Franka', number: 121}}
+];
 function App() {
+  let[users,setUsers]=useState(listUsers);
+  // const deleteUser=()=>{
+  //   users.pop();
+  //   setUsers([...users]);
+  // }
+  const deleteUsers = (id) => {
+    users=(users.filter((user) => user.id !== id));
+    setUsers([...users])
+  };
+  let number=2;
+  let [counter,setCounter]=useState(number);
+  const increment=()=>setCounter(++counter);
+  const decrement=()=>setCounter(--counter);
+  const reset=()=>setCounter(0)
   return (
     <div>
-        <h1>Cats around US</h1>
-        <div className={'MainDiv'}>
-            <div><CharacterComponent img={"https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg"}/>
-                <CharacterComponent img={'https://timesofindia.indiatimes.com/photo/67586673.cms'}/>
-                <CharacterComponent img={'https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png'}/>
-                <CharacterComponent img={'https://icatcare.org/app/uploads/2018/06/Layer-1704-1920x840.jpg'}/></div>
-            <div><CharacterComponent img={"https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg"}/>
-                <CharacterComponent img={'https://timesofindia.indiatimes.com/photo/67586673.cms'}/>
-                <CharacterComponent img={'https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png'}/>
-                <CharacterComponent img={'https://icatcare.org/app/uploads/2018/06/Layer-1704-1920x840.jpg'}/></div>
-            <div><CharacterComponent img={"https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg"}/>
-                <CharacterComponent img={'https://timesofindia.indiatimes.com/photo/67586673.cms'}/>
-                <CharacterComponent img={'https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png'}/>
-                <CharacterComponent img={'https://icatcare.org/app/uploads/2018/06/Layer-1704-1920x840.jpg'}/></div>
-        </div>
+      <div>
+        <h3>{counter}</h3>
+        <button onClick={increment}>increment</button>
+        <button onClick={decrement}>decrement</button>
+        <button onClick={reset}>reset</button>
+      </div>
+        {
+           listUsers.map((value,index)=>
+             <Car key={index}
+                        {...value}
+
+                  onClick={deleteUsers}
+             />
+
+           )
+        }
+        {/*<button onClick={deleteUser}>Click on me</button>*/}
     </div>
+
 
   );
 }
