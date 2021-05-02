@@ -1,2 +1,14 @@
-
+.main{
+    display: flex;
+}
+.users{
+    border: 1px solid silver;
+    padding: 10px;
+    width: fit-content;
+}
+.user{
+    border: 1px solid silver;
+    padding: 10px;
+    width: fit-content;
+}
 

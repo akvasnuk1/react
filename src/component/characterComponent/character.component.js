@@ -1,12 +1,13 @@
+import './user.css'
+export default function User({item,search}) {
 
-export default function User(props) {
-    let {id, name, age, isMarried,onClick} = props;
 
     return (
         <div>
-            <h3>{id} {name} {age} {isMarried.toString()}
-                <button onClick={onClick(id)}>Delete user</button>
-            </h3>
+            {item.name}-
+            {item.username}-
+            {item.email}-
+            <button onClick={()=>search(item.id)}>More info about user</button>
         </div>
     );
 }
