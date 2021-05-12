@@ -1,13 +1,19 @@
 import './user.css'
-export default function User({item,search}) {
-
-
+import {getharacters} from '../../aps'
+import {useEffect, useState} from "react";
+import Users from "./Users";
+export default function User({match:{url}}) {
+    const [info,setInfo]=useState([])
+    useEffect(()=>{
+        getharacters().then(value =>setInfo([...value.data]))
+    },[])
     return (
-        <div>
-            {item.name}-
-            {item.username}-
-            {item.email}-
-            <button onClick={()=>search(item.id)}>More info about user</button>
-        </div>
+        <div className={'main'}>
+                {
+                    info.map(value => <Users key={value.id} item={value} url={url}/>)
+                }
+            </div>
+
+
     );
-}
+        }

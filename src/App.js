@@ -1,31 +1,36 @@
 import './App.css';
-import {useState,useEffect} from "react";
 import User from "./component/characterComponent/character.component";
+import Post from "./component/Post";
+import React from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import Userdetail from "./component/characterComponent/Userdetail";
+import Postdetail from "./component/characterComponent/Postdetail";
 
 function App() {
-
-    const [users, setUsers] = useState([]);
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users').then(value => value.json()).then(value => setUsers([...value]))
-    }, [])
-    let [user,setUser]=useState(null)
-    const search=(id)=>{
-         let user=users.find(value => value.id===id)
-    }
     return (
-        <div className={'main'}>
-            <div className={'users'}>
-                {
-                    users.map(value => <User key={value.id} item={value} search={search}/>)
-                }
+        <Router>
+            <div>
+            <div>
+                <Link to={'info'}>
+                    to info
+                </Link>
             </div>
-            <div className={'user'}>
-                {
-                    user&&<h2>{user.name}-{user.username}</h2>
-                }
+            <Link to={'inventory'}>
+                to inventory
+            </Link>
+                  <Switch>
+                      <Route exact={true} path={'/info'} render={(props)=><User {...props}/>}/>
+                      <Route exact={true} path={'/inventory'} render={(props)=><Post {...props}/>}/>
+                      <Route exact={true} path={'/info/:id'} render={(props)=><Userdetail {...props}/>}/>
+                      <Route exact={true} path={'/inventory/:id'} render={(props)=><Postdetail {...props}/>}/>
+                  </Switch>
             </div>
-        </div>
-
+        </Router>
     );
 }
 
