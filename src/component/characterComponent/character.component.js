@@ -1,4 +1,3 @@
-import './user.css'
 import {getharacters} from '../../aps'
 import {useEffect, useState} from "react";
 import Users from "./Users";
